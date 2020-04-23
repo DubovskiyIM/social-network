@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { Layout } from 'antd';
+
+import HeaderComponent from './components/Header/header.component';
+import SiderComponent from './components/Sider/sider.component';
+import ProfileComponent from './components/Profile/profile.component';
+import FooterComponent from './components/Footer/footer.component';
+
+const App = () => {
+	return (
+		<Layout>
+			<SiderComponent/>
+			<Layout className='site-layout' style={{ marginLeft: 200 }}>
+				<HeaderComponent/>
+				<ProfileComponent/>
+				<FooterComponent/>
+			</Layout>
+		</Layout>
+	);
+};
 
 export default App;
