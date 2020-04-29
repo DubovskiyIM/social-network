@@ -7,7 +7,7 @@ import { Layout } from 'antd';
 
 const { Content } = Layout;
 
-const ProfileComponent = () => {
+const ProfileComponent = (props) => {
 	return (
 		<Content
 			style={{
@@ -24,7 +24,11 @@ const ProfileComponent = () => {
 				}}
 			>
 				<ProfileInfo />
-				<ProfilePosts />
+				<ProfilePosts
+					posts={props.profilePage.posts}
+					newPostText={props.profilePage.newPostText}
+					dispatch={props.dispatch}
+				/>
 			</div>
 		</Content>
 	);

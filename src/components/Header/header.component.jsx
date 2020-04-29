@@ -14,7 +14,7 @@ const HeaderComponent = () => {
 				textAlign: 'center',
 			}}
 		>
-			<span style={{cursor: 'pointer'}}>Social Network</span>
+			<span style={{cursor: 'pointer'}}>ANTD Network</span>
 		</Header>
 	);
 };

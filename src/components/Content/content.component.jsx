@@ -4,12 +4,29 @@ import { Route } from 'react-router-dom';
 import ProfileComponent from './Profile/profile.component';
 import DialogsComponent from './Dialogs/dialogs.component';
 
-const Content = () => {
+const Content = (props) => {
 	return (
-		<div>
-			<Route exact path='/' component={ProfileComponent} />
-			<Route path='/dialogs' component={DialogsComponent} />
-		</div>
+		<>
+			<Route
+				exact
+				path='/'
+				render={() => (
+					<ProfileComponent
+						profilePage={props.state.profilePage}
+						dispatch={props.dispatch}
+					/>
+				)}
+			/>
+			<Route
+				path='/dialogs'
+				render={() => (
+					<DialogsComponent
+						dialogsPage={props.state.dialogsPage}
+						dispatch={props.dispatch}
+					/>
+				)}
+			/>
+		</>
 	);
 };
 
