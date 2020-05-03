@@ -1,21 +1,19 @@
 import React from 'react';
-import {
-	addMessageActionCreator,
-	changeInputMessageActionCreator,
-} from '../../../../../redux/dialogs/dialogs.actions';
 
 import { Form, Button, Input } from 'antd';
 
 const { TextArea } = Input;
 
 const NewMessage = (props) => {
+	console.log(props)
+
 	const addMessageHandler = () => {
-		props.dispatch(addMessageActionCreator());
+		props.addMessage();
 	};
 
 	const onChangeMessageTextHandler = (event) => {
 		let newMessageText = event.target.value;
-		props.dispatch(changeInputMessageActionCreator(newMessageText));
+		props.changeInputMessage(newMessageText);
 	};
 
 	return (

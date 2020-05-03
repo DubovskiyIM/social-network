@@ -9,13 +9,14 @@ const DialogsComponent = (props) => {
 		<>
 			<Row>
 				<Col span={8}>
-					<UserList users={props.dialogsPage.users} />
+					<UserList users={props.users} />
 				</Col>
 				<Col span={16}>
 					<Messages
-						messages={props.dialogsPage.messages}
-						newMessageText={props.dialogsPage.newMessageText}
-						dispatch={props.dispatch}
+						messages={props.messages}
+						newMessageText={props.newMessageText}
+						addMessage={props.addMessage}
+						changeInputMessage={props.changeInputMessage}
 					/>
 				</Col>
 			</Row>

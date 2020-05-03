@@ -7,21 +7,11 @@ import './index.css';
 import 'antd/dist/antd.css';
 
 import store from './redux/store';
+import { Provider } from 'react-redux';
 
-const rerenderEntireTree = (state) => {
-	ReactDOM.render(
-		<App
-			state={state}
-			dispatch={store.dispatch.bind(store)}
-		/>,
-		document.getElementById('root')
-	);
-};
-
-rerenderEntireTree(store.getState());
-
-
-store.subscribe(() => {
-	let state = store.getState();
-	rerenderEntireTree(state)
-})
+ReactDOM.render(
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	document.getElementById('root')
+);

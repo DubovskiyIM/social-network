@@ -1,21 +1,17 @@
 import React from 'react';
 import { Button, Form, Input } from 'antd';
 
-import {
-	addPostActionCreator,
-	changeInputTextActionCreator,
-} from '../../../../../redux/profile/profile.actions';
-
 const { TextArea } = Input;
 
 const NewPost = (props) => {
+
 	const addPostHandler = () => {
-		props.dispatch(addPostActionCreator());
+		props.addPost();
 	};
 
 	const onChangeTextHandler = (event) => {
 		let newText = event.target.value;
-		props.dispatch(changeInputTextActionCreator(newText));
+		props.changeText(newText);
 	};
 
 	return (
@@ -23,7 +19,7 @@ const NewPost = (props) => {
 			<Form.Item>
 				<TextArea
 					rows={4}
-					value={props.newPostText}
+					value={props.value}
 					onChange={onChangeTextHandler}
 				/>
 			</Form.Item>

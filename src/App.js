@@ -17,10 +17,7 @@ const App = (props) => {
 				<SiderComponent />
 				<Layout className='site-layout' style={{ marginLeft: 200 }}>
 					<HeaderComponent />
-					<Content
-						state={props.state}
-						dispatch={props.dispatch}
-					/>
+					<Content />
 					<FooterComponent />
 				</Layout>
 			</Layout>

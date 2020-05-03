@@ -1,9 +1,9 @@
 import React from 'react';
 
 import ProfileInfo from './profile-info/profile-info.component';
-import ProfilePosts from './profile-posts/profile-posts.component';
 
 import { Layout } from 'antd';
+import ProfilePostsContainer from './profile-posts/profile-posts.container';
 
 const { Content } = Layout;
 
@@ -24,11 +24,7 @@ const ProfileComponent = (props) => {
 				}}
 			>
 				<ProfileInfo />
-				<ProfilePosts
-					posts={props.profilePage.posts}
-					newPostText={props.profilePage.newPostText}
-					dispatch={props.dispatch}
-				/>
+				<ProfilePostsContainer />
 			</div>
 		</Content>
 	);

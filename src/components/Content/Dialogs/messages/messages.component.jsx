@@ -17,7 +17,11 @@ const Messages = (props) => {
 	return (
 		<div style={{ marginRight: 20, padding: 20 }}>
 			{messagesElements}
-			<NewMessage newMessageText={props.newMessageText} dispatch={props.dispatch} />
+			<NewMessage
+				newMessageText={props.newMessageText}
+				addMessage={props.addMessage}
+				changeInputMessage={props.changeInputMessage}
+			/>
 		</div>
 	);
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import NewPost from './new-post/new-post.component';
 import Post from './post/post.component';
+import NewPost from './new-post/new-post.component';
 
 const ProfilePosts = (props) => {
 	let postsElements = props.posts.map((post) => {
@@ -14,13 +14,10 @@ const ProfilePosts = (props) => {
 		);
 	});
 	return (
-		<div className='profile-info'>
-			<NewPost
-				newPostText={props.newPostText}
-				dispatch={props.dispatch}
-			/>
+		<>
+			<NewPost changeText={props.changeText} addPost={props.addPost} value={props.value}/>
 			{postsElements}
-		</div>
+		</>
 	);
 };
 
