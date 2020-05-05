@@ -2,7 +2,7 @@ import React, { createElement } from 'react';
 import { Comment, Avatar, Tooltip } from 'antd';
 import { LikeFilled } from '@ant-design/icons';
 
-const Post = (props) => {
+const Post = ({ content, likesCounts }) => {
 	return (
 		<div
 			style={{
@@ -21,11 +21,11 @@ const Post = (props) => {
 						alt='Han Solo'
 					/>
 				}
-				content={<p>{props.content}</p>}
+				content={<p>{content}</p>}
 			></Comment>
 			<Tooltip title='Like'>{createElement(LikeFilled)}</Tooltip>
 			<span className='likesCounts' style={{ paddingLeft: 10 }}>
-				{props.likesCounts}
+				{likesCounts}
 			</span>
 		</div>
 	);

@@ -3,25 +3,20 @@ import { Button, Form, Input } from 'antd';
 
 const { TextArea } = Input;
 
-const NewPost = (props) => {
-
+const NewPost = ({ addPost, changeText, value }) => {
 	const addPostHandler = () => {
-		props.addPost();
+		addPost();
 	};
 
 	const onChangeTextHandler = (event) => {
 		let newText = event.target.value;
-		props.changeText(newText);
+		changeText(newText);
 	};
 
 	return (
 		<>
 			<Form.Item>
-				<TextArea
-					rows={4}
-					value={props.value}
-					onChange={onChangeTextHandler}
-				/>
+				<TextArea rows={4} value={value} onChange={onChangeTextHandler} />
 			</Form.Item>
 			<Form.Item>
 				<Button

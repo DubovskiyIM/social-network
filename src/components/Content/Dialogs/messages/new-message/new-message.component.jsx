@@ -5,8 +5,6 @@ import { Form, Button, Input } from 'antd';
 const { TextArea } = Input;
 
 const NewMessage = (props) => {
-	console.log(props)
-
 	const addMessageHandler = () => {
 		props.addMessage();
 	};

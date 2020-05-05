@@ -3,8 +3,8 @@ import React from 'react';
 import Post from './post/post.component';
 import NewPost from './new-post/new-post.component';
 
-const ProfilePosts = (props) => {
-	let postsElements = props.posts.map((post) => {
+const ProfilePosts = ({ posts, value, changeText, addPost }) => {
+	let postsElements = posts.map((post) => {
 		return (
 			<Post
 				key={post.id}
@@ -15,7 +15,7 @@ const ProfilePosts = (props) => {
 	});
 	return (
 		<>
-			<NewPost changeText={props.changeText} addPost={props.addPost} value={props.value}/>
+			<NewPost changeText={changeText} addPost={addPost} value={value} />
 			{postsElements}
 		</>
 	);

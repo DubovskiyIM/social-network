@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter, matchPath } from 'react-router-dom';
 
 import { Layout, Menu, Avatar } from 'antd';
 
@@ -11,10 +11,56 @@ import {
 	MessageOutlined,
 } from '@ant-design/icons';
 
+import { ROUTE_KEYS, ROUTES } from '../../routes/routes';
+
+
 
 const { Sider } = Layout;
 
-const SiderComponent = () => {
+const SiderComponent = ({ location }) => {
+
+	const getMatchedKey = (location) =>
+	(
+		Object.values(ROUTES).find((route) =>
+			matchPath(location.pathname, route)
+		) || {}
+	).path;
+
+	const menuItems = [
+		{
+			key: ROUTE_KEYS.ROOT,
+			title: 'Profile',
+			icon: <UserOutlined />,
+			linkTo: '/',
+			className: 'nav-text',
+		},
+		{
+			key: ROUTE_KEYS.USER_DIALOGS,
+			title: 'Messages',
+			icon: <MessageOutlined />,
+			linkTo: '/dialogs',
+			className: 'nav-text',
+		},
+		{
+			title: 'Feed',
+			icon: <BellOutlined />,
+			linkTo: '/feed',
+			className: 'nav-text',
+		},
+		{
+			title: 'Music',
+			icon: <CustomerServiceOutlined />,
+			linkTo: '/music',
+			className: 'nav-text',
+		},
+		{
+			title: 'Settings',
+			icon: <SettingOutlined />,
+			linkTo: '/settings',
+			className: 'nav-text',
+		},
+	];
+
 	return (
 		<Sider
 			style={{
@@ -34,35 +80,19 @@ const SiderComponent = () => {
 					cursor: 'pointer',
 				}}
 			/>
-			<Menu theme='dark' mode='inline' defaultSelectedKeys={['1']}>
-				<Menu.Item key='1'>
-					<UserOutlined />
-					<span className='nav-text'>Profile</span>
-					<Link to="/" />
-				</Menu.Item>
-				<Menu.Item key='2'>
-					<MessageOutlined />
-					<span className='nav-text'>Messages</span>
-					<Link to="/dialogs" />
-				</Menu.Item>
-				<Menu.Item key='3'>
-					<BellOutlined />
-					<span className='nav-text'>Feed</span>
-					<Link to="/feed" />
-				</Menu.Item>
-				<Menu.Item key='4'>
-					<CustomerServiceOutlined />
-					<span className='nav-text'>Music</span>
-					<Link to="/music" />
-				</Menu.Item>
-				<Menu.Item key='5'>
-					<SettingOutlined />
-					<span className='nav-text'>Settings</span>
-					<Link to="/settings" />
-				</Menu.Item>
+			<Menu theme='dark' mode='inline' selectedKeys={[getMatchedKey(location)]}>
+				{menuItems.map((menuItem) => {
+					return (
+						<Menu.Item key={menuItem.key}>
+							{menuItem.icon}
+							<span className='nav-text'>{menuItem.title}</span>
+							<Link to={menuItem.linkTo} />
+						</Menu.Item>
+					);
+				})}
 			</Menu>
 		</Sider>
 	);
 };
 
-export default SiderComponent;
+export default withRouter(SiderComponent);

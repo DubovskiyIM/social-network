@@ -10,7 +10,7 @@ import SiderComponent from './components/Sider/sider.component';
 import FooterComponent from './components/Footer/footer.component';
 import Content from './components/Content/content.component';
 
-const App = (props) => {
+const App = () => {
 	return (
 		<BrowserRouter>
 			<Layout>
