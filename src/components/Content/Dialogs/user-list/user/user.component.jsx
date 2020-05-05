@@ -4,14 +4,14 @@ import { NavLink } from 'react-router-dom';
 import { Badge, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-const User = (props) => {
+const User = ({ id, name, count }) => {
 	return (
-		<NavLink to={`/dialogs/${props.id}`}>
+		<NavLink to={`/dialogs/${id}`}>
 			<div style={{ margin: 20 }}>
-				<Badge count={props.count}>
+				<Badge count={count}>
 					<Avatar shape='square' icon={<UserOutlined />} />
 				</Badge>
-				<span style={{ paddingLeft: 20 }}>{props.name}</span>
+				<span style={{ paddingLeft: 20 }}>{name}</span>
 			</div>
 		</NavLink>
 	);

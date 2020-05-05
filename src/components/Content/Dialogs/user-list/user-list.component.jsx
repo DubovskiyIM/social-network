@@ -3,12 +3,11 @@ import './user-list.styles.scss';
 
 import User from './user/user.component';
 
-const UserList = (props) => {
-	let usersElements = props.users.map((user) => {
-		return (
-			<User key={user.id} id={user.id} name={user.name} count={user.count} />
-		);
+const UserList = ({ users }) => {
+	let usersElements = users.map(({ ...userProps }) => {
+		return <User {...userProps} />;
 	});
+
 	return (
 		<div
 			style={{

@@ -23,7 +23,9 @@ const Post = ({ content, likesCounts }) => {
 				}
 				content={<p>{content}</p>}
 			></Comment>
-			<Tooltip title='Like'>{createElement(LikeFilled)}</Tooltip>
+			<div style={{display: 'inline-block', cursor: 'pointer'}}>
+				<Tooltip title='Like'>{createElement(LikeFilled)}</Tooltip>
+			</div>
 			<span className='likesCounts' style={{ paddingLeft: 10 }}>
 				{likesCounts}
 			</span>

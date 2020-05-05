@@ -4,26 +4,17 @@ import { Button, Form, Input } from 'antd';
 const { TextArea } = Input;
 
 const NewPost = ({ addPost, changeText, value }) => {
-	const addPostHandler = () => {
-		addPost();
-	};
-
-	const onChangeTextHandler = (event) => {
-		let newText = event.target.value;
-		changeText(newText);
-	};
-
 	return (
 		<>
 			<Form.Item>
-				<TextArea rows={4} value={value} onChange={onChangeTextHandler} />
+				<TextArea
+					rows={4}
+					value={value}
+					onChange={(e) => changeText(e.target.value)}
+				/>
 			</Form.Item>
 			<Form.Item>
-				<Button
-					type='primary'
-					style={{ float: 'right' }}
-					onClick={addPostHandler}
-				>
+				<Button type='primary' style={{ float: 'right' }} onClick={addPost}>
 					Add Post
 				</Button>
 			</Form.Item>

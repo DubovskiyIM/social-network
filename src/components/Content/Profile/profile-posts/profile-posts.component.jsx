@@ -3,7 +3,7 @@ import React from 'react';
 import Post from './post/post.component';
 import NewPost from './new-post/new-post.component';
 
-const ProfilePosts = ({ posts, value, changeText, addPost }) => {
+const ProfilePosts = ({ posts, ...otherNewPostProps }) => {
 	let postsElements = posts.map((post) => {
 		return (
 			<Post
@@ -15,7 +15,7 @@ const ProfilePosts = ({ posts, value, changeText, addPost }) => {
 	});
 	return (
 		<>
-			<NewPost changeText={changeText} addPost={addPost} value={value} />
+			<NewPost {...otherNewPostProps} />
 			{postsElements}
 		</>
 	);

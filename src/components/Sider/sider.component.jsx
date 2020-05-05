@@ -13,18 +13,15 @@ import {
 
 import { ROUTE_KEYS, ROUTES } from '../../routes/routes';
 
-
-
 const { Sider } = Layout;
 
 const SiderComponent = ({ location }) => {
-
 	const getMatchedKey = (location) =>
-	(
-		Object.values(ROUTES).find((route) =>
-			matchPath(location.pathname, route)
-		) || {}
-	).path;
+		(
+			Object.values(ROUTES).find((route) =>
+				matchPath(location.pathname, route)
+			) || {}
+		).path;
 
 	const menuItems = [
 		{
@@ -81,12 +78,12 @@ const SiderComponent = ({ location }) => {
 				}}
 			/>
 			<Menu theme='dark' mode='inline' selectedKeys={[getMatchedKey(location)]}>
-				{menuItems.map((menuItem) => {
+				{menuItems.map(({ key, icon, title, linkTo }) => {
 					return (
-						<Menu.Item key={menuItem.key}>
-							{menuItem.icon}
-							<span className='nav-text'>{menuItem.title}</span>
-							<Link to={menuItem.linkTo} />
+						<Menu.Item key={key}>
+							{icon}
+							<span className='nav-text'>{title}</span>
+							<Link to={linkTo} />
 						</Menu.Item>
 					);
 				})}

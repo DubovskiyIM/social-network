@@ -1,13 +1,12 @@
 import React from 'react';
+import { Layout } from 'antd';
 
 import ProfileInfo from './profile-info/profile-info.component';
-
-import { Layout } from 'antd';
 import ProfilePostsContainer from './profile-posts/profile-posts.container';
 
 const { Content } = Layout;
 
-const ProfileComponent = (props) => {
+const ProfileComponent = () => {
 	return (
 		<Content
 			style={{

@@ -1,23 +1,19 @@
 import React from 'react';
 
-import UserList from './user-list/user-list.component';
-import Messages from './messages/messages.component';
 import { Row, Col } from 'antd';
 
-const DialogsComponent = (props) => {
+import UserList from './user-list/user-list.component';
+import Messages from './messages/messages.component';
+
+const DialogsComponent = ({ users, ...otherMessagesProps }) => {
 	return (
 		<>
 			<Row>
 				<Col span={8}>
-					<UserList users={props.users} />
+					<UserList users={users} />
 				</Col>
 				<Col span={16}>
-					<Messages
-						messages={props.messages}
-						newMessageText={props.newMessageText}
-						addMessage={props.addMessage}
-						changeInputMessage={props.changeInputMessage}
-					/>
+					<Messages {...otherMessagesProps} />
 				</Col>
 			</Row>
 		</>
