@@ -9,6 +9,7 @@ import {
 	UserOutlined,
 	BellOutlined,
 	MessageOutlined,
+	TeamOutlined,
 } from '@ant-design/icons';
 
 import { ROUTE_KEYS, ROUTES } from '../../routes/routes';
@@ -28,33 +29,31 @@ const SiderComponent = ({ location }) => {
 			key: ROUTE_KEYS.ROOT,
 			title: 'Profile',
 			icon: <UserOutlined />,
-			linkTo: '/',
-			className: 'nav-text',
 		},
 		{
 			key: ROUTE_KEYS.USER_DIALOGS,
 			title: 'Messages',
 			icon: <MessageOutlined />,
-			linkTo: '/dialogs',
-			className: 'nav-text',
+		},
+		{
+			key: ROUTE_KEYS.USER_FRIENDS,
+			title: 'Friends',
+			icon: <TeamOutlined />,
 		},
 		{
 			title: 'Feed',
 			icon: <BellOutlined />,
-			linkTo: '/feed',
-			className: 'nav-text',
+			key: '/feed',
 		},
 		{
 			title: 'Music',
 			icon: <CustomerServiceOutlined />,
-			linkTo: '/music',
-			className: 'nav-text',
+			key: '/music',
 		},
 		{
 			title: 'Settings',
 			icon: <SettingOutlined />,
-			linkTo: '/settings',
-			className: 'nav-text',
+			key: '/settings',
 		},
 	];
 
@@ -78,12 +77,12 @@ const SiderComponent = ({ location }) => {
 				}}
 			/>
 			<Menu theme='dark' mode='inline' selectedKeys={[getMatchedKey(location)]}>
-				{menuItems.map(({ key, icon, title, linkTo }) => {
+				{menuItems.map(({ key, icon, title }) => {
 					return (
 						<Menu.Item key={key}>
 							{icon}
 							<span className='nav-text'>{title}</span>
-							<Link to={linkTo} />
+							<Link to={key} />
 						</Menu.Item>
 					);
 				})}

@@ -7,7 +7,6 @@ const Messages = ({ messages, ...otherNewMessageProps }) => {
 	let messagesElements = messages.map(({ ...messageProps }) => {
 		return <Message {...messageProps} />;
 	});
-
 	return (
 		<div style={{ marginRight: 20, padding: 20 }}>
 			{messagesElements}
